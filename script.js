@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (chatToggle && chatWindow) {
         chatToggle.addEventListener('click', function() {
             if (!chatWindow.classList.contains('hidden') && chatMessages.children.length === 0) {
-                addMessage("Hello! I'm Sabrina! 🐱", 'bot-message');
+                addMessage("Tell Sabrina something! 🩵", 'bot-message');
             }
         });
     }
