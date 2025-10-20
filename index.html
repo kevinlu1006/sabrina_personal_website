@@ -29,8 +29,9 @@
                     </div>
                     <div class="text-content">
                         <h2>Welcome to Sabrina's Corner</h2>
-                        <p>Hello! I'm Sabrina, a domestic shorthair tabby cat from Indiana and now living in Pittsburgh. Here is my little corner on the internet, let me show you what I've done and what I love!</p>
+                        <p>Hello! I'm Sabrina, a domestic shorthair tabby cat from Indiana and now living in Pittsburgh, Pennsylvania. Here is my little corner on the internet, let me show you what I've done and what I love!</p>
                         <p>Feel free to explore the different sections to learn more about me and my roommate Kevin.</p>
+                        <p>Chat with me using the chatbot!</p>
                         <p>Thanks for stopping by! 🫶 🐈 🩵</p>
                     </div>
                 </div>
@@ -209,7 +210,7 @@
                 </div>
             </div>
         </main>
-        
+        <!--
         <div id="chatbot-container">
             <h3>💬 Chat with SabrinaBot</h3>
             <div id="chatbox">
@@ -219,11 +220,39 @@
                     <button id="chat-send">Send</button>
                 </div>
             </div>
-        </div>   
+        </div>
+        -->
+        
            
         <footer>
+            <div class="donation-section">
+                <h3>☕ Support Sabrina</h3>
+                <p>Enjoying my website? Consider buying me a coffee to support my adventures!</p>
+                <a href="https://buymeacoffee.com/sabrina_lu" target="_blank" class="bmc-btn">
+                    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee">
+                    <span>Buy me a coffee</span>
+                </a>
+            </div>
             <p>&copy; 2025 Sabrina's Personal Website. Made with ❤️.</p>
         </footer>
+    </div>
+
+    <!-- Floating Chatbot -->
+    <div id="floating-chatbot">
+        <div id="chat-toggle" class="chat-toggle">
+            <span>🐈</span>
+        </div>
+        <div id="chat-window" class="chat-window hidden">
+            <div class="chat-header">
+                <h3>Chat with Sabrina!</h3>
+                <button id="chat-close" class="chat-close">×</button>
+            </div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message..." />
+                <button id="chat-send">Send</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

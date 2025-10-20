@@ -88,54 +88,84 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add a welcome message in the console
     console.log(`
     🎉 Welcome to Sabrina's Personal Website! 🎉
-    
-    This site was built with:
-    ✨ Clean HTML5 structure
-    🎨 Old-school CSS styling
-    ⚡ Smooth JavaScript interactions
-    
-    Thanks for visiting! 💫
     `);
 });
-// Chatbot interaction
-// Chatbot interaction
-const chatSendBtn = document.getElementById('chat-send');
-if (chatSendBtn) {
-    chatSendBtn.addEventListener('click', async () => {
-        const input = document.getElementById('chat-input');
-        const msg = input.value.trim();
-        if (!msg) return;
+// Floating Chatbot functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatWindow = document.getElementById('chat-window');
+    const chatClose = document.getElementById('chat-close');
+    const chatSendBtn = document.getElementById('chat-send');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
 
-        const chatBox = document.getElementById('chat-messages');
-        chatBox.innerHTML += `<p><b>You:</b> ${msg}</p>`;
-        input.value = '';
-
-        // 顯示 loading 狀態
-        chatBox.innerHTML += `<p><i>Bot is thinking...</i></p>`;
-        chatBox.scrollTop = chatBox.scrollHeight;
-
-        try {
-            // 呼叫你的 Vercel 部署 API
-            const response = await fetch('https://sabrina-chatbot-2xq4lpv2j-kevins-projects-1e8e63e0.vercel.app/api/chat', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: msg })
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+    // Toggle chat window
+    if (chatToggle && chatWindow) {
+        chatToggle.addEventListener('click', function() {
+            chatWindow.classList.toggle('hidden');
+            if (!chatWindow.classList.contains('hidden')) {
+                chatInput.focus();
             }
+        });
+    }
 
-            const data = await response.json();
-            // 刪掉 loading
-            chatBox.lastChild.remove();
-            chatBox.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
-        } catch (error) {
-            console.error('Chat error:', error);
-            chatBox.lastChild.remove();
-            chatBox.innerHTML += `<p><b>Bot:</b> Sorry, something went wrong. 😢</p>`;
-        }
+    // Close chat window
+    if (chatClose && chatWindow) {
+        chatClose.addEventListener('click', function() {
+            chatWindow.classList.add('hidden');
+        });
+    }
 
-        chatBox.scrollTop = chatBox.scrollHeight;
-    });
-}
+    // Send message functionality
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // Add user message
+        addMessage(message, 'user-message');
+        chatInput.value = '';
+
+        // Count words in the message
+        const wordCount = message.split(/\s+/).filter(word => word.length > 0).length;
+        
+        // Generate meow response
+        const meowResponse = 'meow '.repeat(wordCount).trim();
+        
+        // Add bot response with a slight delay
+        setTimeout(() => {
+            addMessage(meowResponse, 'bot-message');
+        }, 500);
+    }
+
+    // Add message to chat
+    function addMessage(text, className) {
+        const messageDiv = document.createElement('p');
+        messageDiv.className = className;
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Send button click
+    if (chatSendBtn) {
+        chatSendBtn.addEventListener('click', sendMessage);
+    }
+
+    // Enter key press
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    }
+
+    // Add welcome message when chat opens
+    if (chatToggle && chatWindow) {
+        chatToggle.addEventListener('click', function() {
+            if (!chatWindow.classList.contains('hidden') && chatMessages.children.length === 0) {
+                addMessage("Hello! I'm Sabrina! 🐱", 'bot-message');
+            }
+        });
+    }
+});

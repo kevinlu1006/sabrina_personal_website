@@ -1,29 +1,39 @@
 # Sabrina's Personal Website
 
-A clean, old-school style personal website featuring four main sections: Home, Projects, Photos, and Roommate.
+A charming personal website for Sabrina, a domestic shorthair tabby cat from Indiana now living in Pittsburgh, Pennsylvania. Features four main sections showcasing her personality, interests, photos, and her roommate Kevin's professional information.
 
 ## Features
 
-- 🏠 **Home Page**: Welcome message and personal introduction
-- 💻 **Projects**: Showcase of work and creative endeavors
-- 📸 **Photos**: Visual gallery of memories and experiences
-- 🏠 **Roommate**: Dedicated section for roommate stories and memories
+- 🏠 **Home Page**: Welcome message and personal introduction from Sabrina
+- 🎯 **Interests**: Sabrina's hobbies including basketball, running, and wine & beer
+- 📸 **Photos**: Visual gallery of Sabrina's travel adventures and memories
+- 👨‍💻 **Roommate**: Kevin's detailed resume and professional background
+- ☕ **Donation Support**: Buy Me a Coffee integration for supporting Sabrina's adventures
+- 🤖 **Interactive Chat**: Chat with SabrinaBot for a fun interactive experience
 
 ## Design
 
-- Clean, retro aesthetic with a modern twist
+- Modern, clean aesthetic with a personal touch
 - Responsive design that works on all devices
 - Smooth animations and hover effects
-- Old-school typography using Courier New font
-- Gradient backgrounds and subtle shadows
+- Professional typography using Inter font
+- Beautiful gradient backgrounds and subtle shadows
+- Cat-themed personality throughout
 
 ## Files Structure
 
 ```
-personal_website/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styling
-├── script.js           # JavaScript functionality
+personal_website_sab/
+├── index.html          # Main HTML file with all content
+├── styles.css          # CSS styling with Inter font and responsive design
+├── script.js           # JavaScript functionality including chatbot
+├── images/             # Image assets
+│   ├── home_page.jpeg
+│   ├── photo_page_pic1.png - photo_page_pic6.png
+│   ├── photo_page.png
+│   ├── project_page.png
+│   ├── roommate_page_pic.png
+│   └── roomate_pic.jpg
 └── README.md           # This file
 ```
 
@@ -84,31 +94,39 @@ git push -u origin main
 
 ## Customization
 
-### Adding Real Images
-1. Create an `images` folder in your repository
-2. Upload your photos to this folder
-3. Replace the placeholder divs with actual `<img>` tags:
+### Updating Content
+- Edit `index.html` to change text content and add new sections
+- Modify `styles.css` to adjust colors, fonts, and layout
+- Update `script.js` to add new interactive features or modify the chatbot
+
+### Adding More Images
+1. Add new photos to the `images` folder
+2. Update the photo grid in the Photos section:
    ```html
-   <img src="images/your-photo.jpg" alt="Description" class="real-image">
+   <div class="photo-item">
+       <img src="images/your-new-photo.png" alt="Description" class="grid-photo">
+   </div>
    ```
 
-### Updating Content
-- Edit `index.html` to change text content
-- Modify `styles.css` to adjust colors, fonts, and layout
-- Update `script.js` to add new interactive features
+### Customizing the Donation Button
+- Update the Buy Me a Coffee link in `index.html`:
+  ```html
+  <a href="https://buymeacoffee.com/YOUR_USERNAME" target="_blank" class="bmc-btn">
+  ```
 
-### Adding More Pages
-1. Create new HTML files for additional pages
-2. Update the navigation in `index.html`
-3. Add corresponding CSS and JavaScript as needed
+### Adding More Sections
+1. Add new tab buttons in the navigation
+2. Create corresponding tab content divs
+3. Update the JavaScript tab switching functionality
 
 ## Tips for Success
 
-- **Keep it simple**: The old-school aesthetic works best with clean, minimal design
+- **Keep it personal**: The cat-themed personality makes the site unique and memorable
 - **Test on mobile**: Make sure your site looks good on phones and tablets
 - **Optimize images**: Compress photos before uploading to keep load times fast
 - **Regular updates**: Keep your content fresh and engaging
 - **Backup your work**: Always keep a local copy of your files
+- **Update the donation link**: Make sure your Buy Me a Coffee username is correct
 
 ## Troubleshooting
 
