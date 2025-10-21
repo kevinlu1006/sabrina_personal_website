@@ -1,4 +1,27 @@
 /* Old School Personal Website Styles */
+:root {
+    --bg-gradient-start: #e3f2fd;
+    --bg-gradient-mid: #bbdefb;
+    --bg-gradient-end: #90caf9;
+    --text-color: #1a237e;
+    --primary: #1976d2;
+    --primary-dark: #0d47a1;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-color: #e3f2fd;
+    --shadow: rgba(25, 118, 210, 0.2);
+}
+
+body.theme-dark {
+    --bg-gradient-start: #0f172a; /* slate-900 */
+    --bg-gradient-mid: #111827;   /* gray-900 */
+    --bg-gradient-end: #0b1220;   /* deep blue-black */
+    --text-color: #e5e7eb;        /* gray-200 */
+    --primary: #7fb6e9;           /* keep blue theme */
+    --primary-dark: #6aa6e6;
+    --card-bg: rgba(10, 15, 25, 0.85);
+    --border-color: #1f2a44;
+    --shadow: rgba(0, 0, 0, 0.45);
+}
 * {
     margin: 0;
     padding: 0;
@@ -9,8 +32,8 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
-    color: #1a237e;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 50%, var(--bg-gradient-end) 100%);
+    color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -19,27 +42,43 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 25px rgba(25, 118, 210, 0.2);
+    background: var(--card-bg);
+    box-shadow: 0 0 25px var(--shadow);
     border-radius: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 2px solid #e3f2fd;
+    border: 2px solid var(--border-color);
 }
 
 header {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 3px solid #1976d2;
+    border-bottom: 3px solid var(--primary);
     padding-bottom: 20px;
 }
 
 header h1 {
     font-size: 2.5em;
-    color: #0d47a1;
+    color: var(--primary-dark);
     margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(25, 118, 210, 0.3);
+    text-shadow: 2px 2px 4px var(--shadow);
 }
+
+/* Theme toggle */
+.theme-toggle {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: linear-gradient(135deg, #6bd0ff, #2900f2);
+    color: #fff;
+    border: 0;
+    border-radius: 24px;
+    padding: 8px 14px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+.theme-toggle:hover { opacity: 0.95; }
 
 .nav-tabs {
     list-style: none;
@@ -57,7 +96,7 @@ header h1 {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     font-weight: 600;
-    color: #0d47a1;
+    color: var(--primary-dark);
     border-radius: 8px;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -65,18 +104,18 @@ header h1 {
 }
 
 .tab-button:hover {
-    background: #1976d2;
+    background: var(--primary);
     color: white;
     border-color: #1565c0;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .tab-button.active {
-    background: #0d47a1;
+    background: var(--primary-dark);
     color: white;
     border-color: #1565c0;
-    box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4);
+    box-shadow: 0 4px 12px var(--shadow);
 }
 
 .tab-content {
@@ -156,10 +195,10 @@ header h1 {
 }
 
 .text-content h2 {
-    color: #0d47a1;
+    color: var(--primary-dark);
     margin-bottom: 20px;
     font-size: 2em;
-    border-bottom: 2px solid #1976d2;
+    border-bottom: 2px solid var(--primary);
     padding-bottom: 10px;
 }
 
@@ -171,15 +210,15 @@ header h1 {
 
 .interest-item {
     background: #e3f2fd;
-    border-left: 4px solid #1976d2;
+    border-left: 4px solid var(--primary);
     padding: 15px;
     margin: 15px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+    box-shadow: 0 2px 8px var(--shadow);
 }
 
 .interest-item h3 {
-    color: #0d47a1;
+    color: var(--primary-dark);
     margin-bottom: 10px;
     font-size: 1.3em;
 }
@@ -255,9 +294,40 @@ footer {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 2px solid #90caf9;
-    color: #1976d2;
+    color: var(--primary);
     font-size: 0.9em;
 }
+
+/* Terminal Hero */
+.terminal-hero {
+    margin-bottom: 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 0 8px 24px var(--shadow);
+    overflow: hidden;
+}
+.terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #6bd0ff, #2900f2);
+    color: #fff;
+}
+.terminal-bar .dot {
+    width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+}
+.terminal-bar .dot.red { background: #ff5f56; }
+.terminal-bar .dot.yellow { background: #ffbd2e; }
+.terminal-bar .dot.green { background: #27c93f; }
+.terminal-title { margin-left: auto; font-weight: 600; opacity: 0.9; }
+.terminal-body { padding: 18px 20px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.terminal-body pre { white-space: pre-wrap; word-break: break-word; }
+.prompt { color: #22c55e; }
+.path { color: #60a5fa; }
+.cursor { display: inline-block; width: 8px; background: #60a5fa; animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
 /* Donation Section */
 .donation-section {
@@ -761,6 +831,129 @@ footer {
 #chat-send:hover {
     background: #7fb6e9;
     transform: translateY(-1px);
+}
+
+/* Subscription prompt and email form */
+.subscription-prompt, .email-form {
+    padding: 15px;
+    background: #f8f9ff;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.subscription-prompt.hidden, .email-form.hidden {
+    display: none;
+}
+
+.subscription-message, .email-message {
+    text-align: center;
+}
+
+.subscription-message p, .email-message p {
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.subscription-buttons, .email-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.sub-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.sub-yes {
+    background: #22c55e;
+    color: white;
+}
+
+.sub-yes:hover {
+    background: #16a34a;
+    transform: translateY(-1px);
+}
+
+.sub-no {
+    background: #ef4444;
+    color: white;
+}
+
+.sub-no:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+#email-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+#email-input:focus {
+    border-color: #7fb6e9;
+}
+
+/* Footer subscription styles (smaller, above coffee section) */
+.home-subscription-prompt, .home-email-form, .no-worries-message {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.home-subscription-prompt.hidden, .home-email-form.hidden, .no-worries-message.hidden {
+    display: none;
+}
+
+.subscription-card, .email-card, .no-worries-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px var(--shadow);
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.subscription-card h3, .email-card h3, .no-worries-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.no-worries-card p {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 0.9em;
+}
+
+#home-email-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s ease;
+}
+
+#home-email-input:focus {
+    border-color: var(--primary);
 }
 
 /* Mobile responsiveness for chatbot */

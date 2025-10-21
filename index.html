@@ -18,6 +18,7 @@
                     <li><button class="tab-button" data-tab="roommate">Roommate</button></li>
                 </ul>
             </nav>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
         </header>
 
         <main>
@@ -25,7 +26,9 @@
             <div id="home" class="tab-content active">
                 <div class="content-wrapper">
                     <div class="image-container">
-                        <img src="images/home_page.jpeg" alt="Sabrina's Profile Photo" class="main-image">
+                        <a href="images/home_page.jpeg" target="_blank" rel="noopener">
+                            <img src="images/home_page.jpeg" alt="Sabrina's Profile Photo" class="main-image">
+                        </a>
                     </div>
                     <div class="text-content">
                         <h2>Welcome to Sabrina's Corner</h2>
@@ -41,7 +44,9 @@
             <div id="interest" class="tab-content">
                 <div class="content-wrapper">
                     <div class="image-container">
-                        <img src="images/project_page.png" alt="interesting pic" class="main-image">
+                        <a href="images/project_page.png" target="_blank" rel="noopener">
+                            <img src="images/project_page.png" alt="interesting pic" class="main-image">
+                        </a>
                     </div>
                     <div class="text-content">
                         <h2>What do I do when I'm not sleeping?</h2>
@@ -66,29 +71,43 @@
             <div id="photos" class="tab-content">
                 <div class="content-wrapper">
                     <div class="image-container">
-                        <img src="images/photo_page.png" alt="Photo Gallery" class="main-image">
+                        <a href="images/photo_page.png" target="_blank" rel="noopener">
+                            <img src="images/photo_page.png" alt="Photo Gallery" class="main-image">
+                        </a>
                     </div>
                     <div class="text-content">
                         <h2>Photo Gallery</h2>
                         <p>As a really pretty cat, I would like to share some pictures with y'all! These are some pictures I took when I travel to different places.</p>
                         <div class="photo-grid">
                             <div class="photo-item">
-                                <img src="images/photo_page_pic1.png" alt="Photo 1" class="grid-photo">
+                                <a href="images/photo_page_pic1.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic1.png" alt="Photo 1" class="grid-photo">
+                                </a>
                             </div>
                             <div class="photo-item">
-                                <img src="images/photo_page_pic2.png" alt="Photo 2" class="grid-photo">
+                                <a href="images/photo_page_pic2.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic2.png" alt="Photo 2" class="grid-photo">
+                                </a>
                             </div>
                             <div class="photo-item">
-                                <img src="images/photo_page_pic3.png" alt="Photo 3" class="grid-photo">
+                                <a href="images/photo_page_pic3.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic3.png" alt="Photo 3" class="grid-photo">
+                                </a>
                             </div>
                             <div class="photo-item">
-                                <img src="images/photo_page_pic4.png" alt="Photo 4" class="grid-photo">
+                                <a href="images/photo_page_pic4.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic4.png" alt="Photo 4" class="grid-photo">
+                                </a>
                             </div>
                             <div class="photo-item">
-                                <img src="images/photo_page_pic5.png" alt="Photo 5" class="grid-photo">
+                                <a href="images/photo_page_pic5.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic5.png" alt="Photo 5" class="grid-photo">
+                                </a>
                             </div>
                             <div class="photo-item">
-                                <img src="images/photo_page_pic6.png" alt="Photo 6" class="grid-photo">
+                                <a href="images/photo_page_pic6.png" target="_blank" rel="noopener">
+                                    <img src="images/photo_page_pic6.png" alt="Photo 6" class="grid-photo">
+                                </a>
                             </div>
                         </div>
                         <p>I'm so excited to share my photos with you! Feel free to send me (kevinlutwn@gmail.com) some of your travel shots too!</p>
@@ -100,7 +119,9 @@
             <div id="roommate" class="tab-content">
                 <div class="content-wrapper">
                     <div class="image-container">
-                        <img src="images/roommate_page_pic.png" alt="Roommate Photo" class="main-image">
+                        <a href="images/roommate_page_pic.png" target="_blank" rel="noopener">
+                            <img src="images/roommate_page_pic.png" alt="Roommate Photo" class="main-image">
+                        </a>
                     </div>
                     <div class="text-content">
                         <h2>Meet My Roommate</h2>
@@ -225,6 +246,37 @@
         
            
         <footer>
+            <!-- Subscription prompt (smaller, above coffee section) -->
+            <div id="home-subscription-prompt" class="home-subscription-prompt">
+                <div class="subscription-card">
+                    <h3>🐱 Do you want to subscribe for monthly content?</h3>
+                    <div class="subscription-buttons">
+                        <button id="home-subscribe-yes" class="sub-btn sub-yes">Yes!</button>
+                        <button id="home-subscribe-no" class="sub-btn sub-no">No thanks</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email collection form (hidden by default) -->
+            <div id="home-email-form" class="home-email-form hidden">
+                <div class="email-card">
+                    <h3>📧 Enter your email to subscribe:</h3>
+                    <input type="email" id="home-email-input" placeholder="your@email.com" />
+                    <div class="email-buttons">
+                        <button id="home-email-submit" class="sub-btn sub-yes">Subscribe</button>
+                        <button id="home-email-cancel" class="sub-btn sub-no">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No worries message (hidden by default) -->
+            <div id="no-worries-message" class="no-worries-message hidden">
+                <div class="no-worries-card">
+                    <h3>😊 No worries!</h3>
+                    <p>You can always subscribe later if you change your mind!</p>
+                </div>
+            </div>
+            
             <div class="donation-section">
                 <h3>☕ Support Sabrina</h3>
                 <p>Enjoying my website? Consider buying me a coffee to support my adventures!</p>
@@ -248,6 +300,7 @@
                 <button id="chat-close" class="chat-close">×</button>
             </div>
             <div id="chat-messages" class="chat-messages"></div>
+            
             <div class="chat-input-area">
                 <input type="text" id="chat-input" placeholder="Type a message..." />
                 <button id="chat-send">Send</button>
